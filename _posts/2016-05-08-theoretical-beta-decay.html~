@@ -1,0 +1,134 @@
+---
+layout: post
+title:  "Theoretical decay properties query"
+date:   2016-05-08 17:25:07 +0900
+categories: jekyll update
+---
+
+&nbsp; &nbsp; Z number:
+<br> &nbsp; &nbsp;
+<input type="text" size="8" name="enter" id="Z">
+<br> &nbsp; &nbsp; A number:
+<br> &nbsp; &nbsp;
+<input type="text" size="8" id="N">
+<br> &nbsp; &nbsp;
+<input type="radio" name="model" value="frdm" checked="">FRDM-QRPA
+<br> &nbsp; &nbsp;
+<input type="radio" name="model" value="ktuy">KTUY-GT2
+<br> &nbsp; &nbsp;
+<input type="radio" name="model" value="hfb">HFB based EDM
+<br>
+<br> &nbsp; &nbsp;
+<input type="button" value="Show result" onclick="kk();">
+<br>
+<br>
+
+
+</p>
+<p id="message"></p>
+
+<br>***
+<br>
+<li> FRDM-QRPA:
+  <br> - Möller, Peter, Bernd Pfeiffer, and Karl-Ludwig Kratz. "New calculations of gross β-decay properties for astrophysical applications: Speeding-up the classical r process." Physical Review C 67.5 (2003): 055802.
+  <br> - P. Moller, A. J. Sierk, T. Ichikawa, H. Sagawa. "Nuclear ground-state masses and deformations: FRDM(2012)" arXiv:1508.06294 </li>
+<li> KTUY-GT2:
+  <br> - Koura, Hiroyuki, et al. "Nuclear mass formula with shell energies calculated by a new method." Nuclear Physics A 674.1 (2000): 47-76.
+  <br> - T.Tachibana, M.Yamada, Proc. Inc. Conf. on exotic nuclei and atomic masses, Arles, 1995, eds. M. de Saint Simon and O. Sorlin (Editions Frontueres, Gif-sur-Yvette, 1995) p.763. and references therein.
+</li>
+<li> HFB based EDM:
+  <br> - K. Miernik Phys. Rev. C 90, 0543060 (2014)
+  <br> - S. Goriely, N. Chamel, J.M. Pearson, Phys. Rev. C 88 024308 (2013) </li>
+
+<script type="text/javascript">
+  var lolZ,lolN,options;
+
+  function trim(str, chars)
+  {
+  return ltrim(rtrim(str, chars), chars);
+  }
+
+  function ltrim(str, chars)
+  {
+  chars = chars || "\\s";
+  return str.replace(new RegExp("^[" + chars + "]+", "g"), "");
+  }
+
+  function rtrim(str, chars)
+  {
+  chars = chars || "\\s";
+  return str.replace(new RegExp("[" + chars + "]+$", "g"), "");
+  }
+
+  function kk(){
+  lolZ = trim(document.getElementById('Z').value);
+  lolN = trim(document.getElementById('N').value);
+  lolN =lolN-lolZ;
+  for (i = 0; i < document.getElementsByName('model').length; i++) {
+		  if (document.getElementsByName('model')[i].checked) {
+		  options=document.getElementsByName('model')[i].value;
+		  }
+		  }
+		  var xhttp = new XMLHttpRequest();
+
+		  xhttp.onreadystatechange = function() {
+		  if (xhttp.readyState == 4 && xhttp.status == 200) {
+		  myFunction(xhttp);
+		  }
+		  };
+
+		  if (options=="hfb"){
+		  xhttp.open("GET", "Mennik.2014.xml", true);
+		  }else if (options=="ktuy"){
+		  xhttp.open("GET", "KTUY05.xml", true);
+		  }else{
+		  xhttp.open("GET", "Moller.2003.xml", true);
+		  }
+		  xhttp.send();
+		  }
+		  function myFunction(xml) {
+		  var xmlDoc = xml.responseXML;
+		  var xZ=xmlDoc.getElementsByTagName("Z");
+		  var xN=xmlDoc.getElementsByTagName("N");
+		  var xHalflife=xmlDoc.getElementsByTagName("Halflife");
+		  var xP0n=xmlDoc.getElementsByTagName("P0n");
+		  var xP1n=xmlDoc.getElementsByTagName("P1n");
+		  var xP2n=xmlDoc.getElementsByTagName("P2n");
+		  var xP3n=xmlDoc.getElementsByTagName("P3n");
+		  var xPn=xmlDoc.getElementsByTagName("Pn");
+
+		  var xMassE=xmlDoc.getElementsByTagName("Mass_excess");
+		  var xS1n=xmlDoc.getElementsByTagName("Qb");
+		  var xQb=xmlDoc.getElementsByTagName("S1n");
+
+		  var txt="";
+		  for (i=0;i<xZ.length;i++){
+			       if (xZ[i].childNodes[0].nodeValue==lolZ&&xN[i].childNodes[0].nodeValue==lolN){
+			       txt+="T1/2 = "+xHalflife[i].childNodes[0].nodeValue+" second <br/>";
+			       txt+="P0n = "+xP0n[i].childNodes[0].nodeValue+"<br/>";
+			       txt+="P1n = "+xP1n[i].childNodes[0].nodeValue+"<br/>";
+			       txt+="P2n = "+xP2n[i].childNodes[0].nodeValue+"<br/>";
+			       txt+="P3n = "+xP3n[i].childNodes[0].nodeValue+"<br/>";
+			       txt+="Pn = "+xPn[i].childNodes[0].nodeValue+"<br/>";
+
+			       txt+="Mass excess = "+xMassE[i].childNodes[0].nodeValue+" MeV <br/>";
+			       txt+="Qbeta = "+xS1n[i].childNodes[0].nodeValue+" MeV <br/>";
+			       txt+="S1n = "+xQb[i].childNodes[0].nodeValue+" MeV <br/>";
+			       };
+			       }
+			       if (txt==""){
+			       txt="No data available";
+			       }
+			       var txthead;
+			       if (options=="hfb"){
+			       txthead="EDM model was chosen! <br/><br/>";
+			       }else if (options=="ktuy"){
+			       txthead="KTUY-GT2 model was chosen! <br/><br/>";
+			       }else{
+			       txthead="FRDM-QRPA model was chosen! <br/><br/>";
+			       }
+
+			       document.getElementById("message").innerHTML = txthead+txt;
+			       }
+			       </script>
+
