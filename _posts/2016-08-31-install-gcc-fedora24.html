@@ -1,0 +1,31 @@
+---
+layout: post
+title:  "Installing GCC 4.9.3 in Fedora 24"
+date:   2016-08-31 21:45:07 +0900
+categories: jekyll update
+---
+
+<h2>How to install in Fedora &gt;=24?</h2>
+
+<p>1) su</p>
+
+<p>2) rpm --import https://copr-be.cloud.fedoraproject.org/results/davidva/gcc49/pubkey.gpg</p>
+
+<p>3) wget -P /etc/yum.repos.d/ https://raw.githubusercontent.com/kuboosoft/spec-testing/master/REPOSITORY/_copr_davidva-gcc49.repo</p>
+
+<p>4) dnf install gcc49</p>
+
+<h1>How to use?</h1>
+
+<p>*You can change the environment variables as follows adding</p>
+
+<p><code>source /usr/bin/gcc49</code></p>
+
+<h1>Set path to .so file</h1>
+
+<p>sudo ln -s /opt/gcc-4.9.3/lib64/gcc/x86_64-fedoraunited-linux-gnu/lib64/libgcc_s.so /usr/lib64/libgcc_s.so</p>
+
+<h2>DONE!</h2>
+
+<p>&nbsp;</p>
+

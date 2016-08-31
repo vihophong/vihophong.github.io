@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Archive</title>
-  <meta name="description" content="">
+  <title>Installing GCC 4.9.3 in Fedora 24</title>
+  <meta name="description" content="How to install in Fedora &gt;=24?">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://vihophong.github.io/archive/">
+  <link rel="canonical" href="http://vihophong.github.io/jekyll/update/2016/08/31/install-gcc-fedora24.html">
   <link rel="alternate" type="application/rss+xml" title="Vi Ho Phong's Site" href="http://vihophong.github.io/feed.xml">
 </head>
 
@@ -66,40 +66,38 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  
   <header class="post-header">
-    <h2>Archive</h2>
-    <!--<h3 class="post-title">Archive</h3>-->
-    
+    <h1 class="post-title" itemprop="name headline">Installing GCC 4.9.3 in Fedora 24</h1>
+    <p class="post-meta"><time datetime="2016-08-31T21:45:07+09:00" itemprop="datePublished">Aug 31, 2016</time></p>
   </header>
 
-  <div class="post-content">
-    <section id="archive">
-  <h3>This year's posts</h3>
-  
-  
-  <ul class="this">
-    
-    <li><time>31 Aug</time> <a href="/jekyll/update/2016/08/31/install-gcc-fedora24.html">Installing GCC 4.9.3 in Fedora 24</a></li>
-    
-  
-    
-    
-    
-    
-    <li><time>08 May</time> <a href="/jekyll/update/2016/05/08/aboutme.html">About me</a></li>
-    
-  
-    
-    
-    
-    
-    <li><time>08 May</time> <a href="/jekyll/update/2016/05/08/apollo-11-mission.html">Apollo 11 Mission</a></li>
-    
-  </ul>
-  </section>
+  <div class="post-content" itemprop="articleBody">
+    <h2>How to install in Fedora &gt;=24?</h2>
+
+<p>1) su</p>
+
+<p>2) rpm --import https://copr-be.cloud.fedoraproject.org/results/davidva/gcc49/pubkey.gpg</p>
+
+<p>3) wget -P /etc/yum.repos.d/ https://raw.githubusercontent.com/kuboosoft/spec-testing/master/REPOSITORY/_copr_davidva-gcc49.repo</p>
+
+<p>4) dnf install gcc49</p>
+
+<h1>How to use?</h1>
+
+<p>*You can change the environment variables as follows adding</p>
+
+<p><code>source /usr/bin/gcc49</code></p>
+
+<h1>Set path to .so file</h1>
+
+<p>sudo ln -s /opt/gcc-4.9.3/lib64/gcc/x86_64-fedoraunited-linux-gnu/lib64/libgcc_s.so /usr/lib64/libgcc_s.so</p>
+
+<h2>DONE!</h2>
+
+<p>&nbsp;</p>
+
 
   </div>
 
