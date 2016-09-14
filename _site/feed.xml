@@ -5,48 +5,9 @@
     <description></description>
     <link>http://vihophong.github.io/</link>
     <atom:link href="http://vihophong.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 14 Sep 2016 16:58:16 +0900</pubDate>
-    <lastBuildDate>Wed, 14 Sep 2016 16:58:16 +0900</lastBuildDate>
+    <pubDate>Wed, 14 Sep 2016 16:59:23 +0900</pubDate>
+    <lastBuildDate>Wed, 14 Sep 2016 16:59:23 +0900</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
-    
-      <item>
-        <title>Nucnet code: install and apply boost</title>
-        <description>&lt;h2&gt;Just follow the instruction at:&lt;/h2&gt;
-
-&lt;p&gt;https://sourceforge.net/u/mbradle/blog/2016/05/using-the-boost-compiled-libraries/&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;cd boost&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;./bootstrap.sh&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;./b2&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Add the following line to the .bashrc&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;export BOOST_DIR=/home/phong/boost&lt;br /&gt;
-export BOOST_LIB_DIR=/home/phong/boost/stage/lib&lt;br /&gt;
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/phong/boost/stage/lib&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;If you encounter an error like: &amp;quot;boost::format&amp;quot;... Just ignore it by uncomment the corresponding code&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 31 Aug 2016 21:48:07 +0900</pubDate>
-        <link>http://vihophong.github.io/jekyll/update/2016/08/31/nucnet-boost.html</link>
-        <guid isPermaLink="true">http://vihophong.github.io/jekyll/update/2016/08/31/nucnet-boost.html</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
     
       <item>
         <title>Installing root with Qt and anaroot in Fedora 24</title>
@@ -102,9 +63,48 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/phong/boost/stage/lib&lt;/strong&g
 
 
 </description>
-        <pubDate>Wed, 31 Aug 2016 21:45:07 +0900</pubDate>
-        <link>http://vihophong.github.io/jekyll/update/2016/08/31/install-root-qt-anaroot-fedora24.html</link>
-        <guid isPermaLink="true">http://vihophong.github.io/jekyll/update/2016/08/31/install-root-qt-anaroot-fedora24.html</guid>
+        <pubDate>Wed, 14 Sep 2016 16:49:07 +0900</pubDate>
+        <link>http://vihophong.github.io/jekyll/update/2016/09/14/install-root-qt-anaroot-fedora24.html</link>
+        <guid isPermaLink="true">http://vihophong.github.io/jekyll/update/2016/09/14/install-root-qt-anaroot-fedora24.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Nucnet code: install and apply boost</title>
+        <description>&lt;h2&gt;Just follow the instruction at:&lt;/h2&gt;
+
+&lt;p&gt;https://sourceforge.net/u/mbradle/blog/2016/05/using-the-boost-compiled-libraries/&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;cd boost&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;./bootstrap.sh&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;./b2&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Add the following line to the .bashrc&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;export BOOST_DIR=/home/phong/boost&lt;br /&gt;
+export BOOST_LIB_DIR=/home/phong/boost/stage/lib&lt;br /&gt;
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/phong/boost/stage/lib&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you encounter an error like: &amp;quot;boost::format&amp;quot;... Just ignore it by uncomment the corresponding code&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 31 Aug 2016 21:48:07 +0900</pubDate>
+        <link>http://vihophong.github.io/jekyll/update/2016/08/31/nucnet-boost.html</link>
+        <guid isPermaLink="true">http://vihophong.github.io/jekyll/update/2016/08/31/nucnet-boost.html</guid>
         
         
         <category>jekyll</category>
