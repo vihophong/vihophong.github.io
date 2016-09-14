@@ -1,0 +1,58 @@
+---
+layout: post
+title:  "Installing root with Qt and anaroot in Fedora 24"
+date:   2016-08-31 21:45:07 +0900
+categories: jekyll update
+---
+
+<h1>How to install root 5.34.36 and anaroot 4.5.15 in Fedora &gt;=24?</h1>
+
+<h2><span style="color:#ff0000">To install root with Qt and roofit</span></h2>
+
+<h3><strong>Install Qt devel</strong></h3>
+
+<p>sudo dnf install qt-devel</p>
+
+<p>... and prerequisites&nbsp;at&nbsp;https://root.cern.ch/build-prerequisites</p>
+
+<h3><strong>Download root 5.34.36 at</strong></h3>
+
+<p>https://root.cern.ch/content/release-53436</p>
+
+<h3><strong>Unpack and run following:</strong></h3>
+
+<p>./configure linuxx8664gcc --with-qt-incdir=/usr/include --enable-roofit</p>
+
+<p>make</p>
+
+<p><strong>Add following line to ~/.bashrc&nbsp;</strong></p>
+
+<p>source path_to_root/bin/thisroot.sh</p>
+
+<h2><span style="color:#ff0000">To install anaroot with eurica pack (v4.5.15)</span></h2>
+
+<p><strong>Download anaroot at</strong></p>
+
+<p>https://ribf.riken.jp/RIBFDAQ/index.php?Tools%2FAnalysis%2FANAROOT%2FInstallation</p>
+
+<p><strong>Install prerequisites and run following command</strong></p>
+
+<p>./autogen.sh --prefix=$PWD</p>
+
+<p>make install</p>
+
+<p><strong>If you encounter an error of </strong>TArtRawEventObject<strong>, edit the&nbsp;file:</strong></p>
+
+<p>sources/Core/src/TArtRawEventObject.cc</p>
+
+<p>and delete/comment the line with error</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Done!</strong></p>
+
+<p>&nbsp;</p>
+
+<p style="text-align:right">&nbsp;</p>
+
+

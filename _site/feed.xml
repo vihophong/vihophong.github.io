@@ -5,8 +5,8 @@
     <description></description>
     <link>http://vihophong.github.io/</link>
     <atom:link href="http://vihophong.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 14 Sep 2016 15:27:03 +0900</pubDate>
-    <lastBuildDate>Wed, 14 Sep 2016 15:27:03 +0900</lastBuildDate>
+    <pubDate>Wed, 14 Sep 2016 16:58:16 +0900</pubDate>
+    <lastBuildDate>Wed, 14 Sep 2016 16:58:16 +0900</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -40,6 +40,71 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/phong/boost/stage/lib&lt;/strong&g
         <pubDate>Wed, 31 Aug 2016 21:48:07 +0900</pubDate>
         <link>http://vihophong.github.io/jekyll/update/2016/08/31/nucnet-boost.html</link>
         <guid isPermaLink="true">http://vihophong.github.io/jekyll/update/2016/08/31/nucnet-boost.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Installing root with Qt and anaroot in Fedora 24</title>
+        <description>&lt;h1&gt;How to install root 5.34.36 and anaroot 4.5.15 in Fedora &amp;gt;=24?&lt;/h1&gt;
+
+&lt;h2&gt;&lt;span style=&quot;color:#ff0000&quot;&gt;To install root with Qt and roofit&lt;/span&gt;&lt;/h2&gt;
+
+&lt;h3&gt;&lt;strong&gt;Install Qt devel&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;sudo dnf install qt-devel&lt;/p&gt;
+
+&lt;p&gt;... and prerequisites&amp;nbsp;at&amp;nbsp;https://root.cern.ch/build-prerequisites&lt;/p&gt;
+
+&lt;h3&gt;&lt;strong&gt;Download root 5.34.36 at&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;https://root.cern.ch/content/release-53436&lt;/p&gt;
+
+&lt;h3&gt;&lt;strong&gt;Unpack and run following:&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;./configure linuxx8664gcc --with-qt-incdir=/usr/include --enable-roofit&lt;/p&gt;
+
+&lt;p&gt;make&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Add following line to ~/.bashrc&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;source path_to_root/bin/thisroot.sh&lt;/p&gt;
+
+&lt;h2&gt;&lt;span style=&quot;color:#ff0000&quot;&gt;To install anaroot with eurica pack (v4.5.15)&lt;/span&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Download anaroot at&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;https://ribf.riken.jp/RIBFDAQ/index.php?Tools%2FAnalysis%2FANAROOT%2FInstallation&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Install prerequisites and run following command&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;./autogen.sh --prefix=$PWD&lt;/p&gt;
+
+&lt;p&gt;make install&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;If you encounter an error of &lt;/strong&gt;TArtRawEventObject&lt;strong&gt;, edit the&amp;nbsp;file:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;sources/Core/src/TArtRawEventObject.cc&lt;/p&gt;
+
+&lt;p&gt;and delete/comment the line with error&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Done!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p style=&quot;text-align:right&quot;&gt;&amp;nbsp;&lt;/p&gt;
+
+
+</description>
+        <pubDate>Wed, 31 Aug 2016 21:45:07 +0900</pubDate>
+        <link>http://vihophong.github.io/jekyll/update/2016/08/31/install-root-qt-anaroot-fedora24.html</link>
+        <guid isPermaLink="true">http://vihophong.github.io/jekyll/update/2016/08/31/install-root-qt-anaroot-fedora24.html</guid>
         
         
         <category>jekyll</category>

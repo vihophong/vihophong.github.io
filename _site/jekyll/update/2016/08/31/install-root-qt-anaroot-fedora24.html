@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Vi Ho Phong&#39;s Site</title>
-  <meta name="description" content="">
+  <title>Installing root with Qt and anaroot in Fedora 24</title>
+  <meta name="description" content="How to install root 5.34.36 and anaroot 4.5.15 in Fedora &gt;=24?">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://vihophong.github.io/">
+  <link rel="canonical" href="http://vihophong.github.io/jekyll/update/2016/08/31/install-root-qt-anaroot-fedora24.html">
   <link rel="alternate" type="application/rss+xml" title="Vi Ho Phong's Site" href="http://vihophong.github.io/feed.xml">
 </head>
 
@@ -66,57 +66,69 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Installing root with Qt and anaroot in Fedora 24</h1>
+    <p class="post-meta"><time datetime="2016-08-31T21:45:07+09:00" itemprop="datePublished">Aug 31, 2016</time></p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Aug 31, 2016</span>
+  <div class="post-content" itemprop="articleBody">
+    <h1>How to install root 5.34.36 and anaroot 4.5.15 in Fedora &gt;=24?</h1>
 
-        <h2>
-          <a class="post-link" href="/jekyll/update/2016/08/31/nucnet-boost.html">Nucnet code: install and apply boost</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Aug 31, 2016</span>
+<h2><span style="color:#ff0000">To install root with Qt and roofit</span></h2>
 
-        <h2>
-          <a class="post-link" href="/jekyll/update/2016/08/31/install-root-qt-anaroot-fedora24.html">Installing root with Qt and anaroot in Fedora 24</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Aug 31, 2016</span>
+<h3><strong>Install Qt devel</strong></h3>
 
-        <h2>
-          <a class="post-link" href="/jekyll/update/2016/08/31/install-gcc-fedora24.html">Installing GCC 4.9.3 in Fedora 24</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">May 8, 2016</span>
+<p>sudo dnf install qt-devel</p>
 
-        <h2>
-          <a class="post-link" href="/jekyll/update/2016/05/08/aboutme.html">About me</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">May 8, 2016</span>
+<p>... and prerequisites&nbsp;at&nbsp;https://root.cern.ch/build-prerequisites</p>
 
-        <h2>
-          <a class="post-link" href="/jekyll/update/2016/05/08/apollo-11-mission.html">Apollo 11 Mission</a>
-        </h2>
-      </li>
-    
-  </ul>
+<h3><strong>Download root 5.34.36 at</strong></h3>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<p>https://root.cern.ch/content/release-53436</p>
 
-</div>
+<h3><strong>Unpack and run following:</strong></h3>
+
+<p>./configure linuxx8664gcc --with-qt-incdir=/usr/include --enable-roofit</p>
+
+<p>make</p>
+
+<p><strong>Add following line to ~/.bashrc&nbsp;</strong></p>
+
+<p>source path_to_root/bin/thisroot.sh</p>
+
+<h2><span style="color:#ff0000">To install anaroot with eurica pack (v4.5.15)</span></h2>
+
+<p><strong>Download anaroot at</strong></p>
+
+<p>https://ribf.riken.jp/RIBFDAQ/index.php?Tools%2FAnalysis%2FANAROOT%2FInstallation</p>
+
+<p><strong>Install prerequisites and run following command</strong></p>
+
+<p>./autogen.sh --prefix=$PWD</p>
+
+<p>make install</p>
+
+<p><strong>If you encounter an error of </strong>TArtRawEventObject<strong>, edit the&nbsp;file:</strong></p>
+
+<p>sources/Core/src/TArtRawEventObject.cc</p>
+
+<p>and delete/comment the line with error</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Done!</strong></p>
+
+<p>&nbsp;</p>
+
+<p style="text-align:right">&nbsp;</p>
+
+
+
+  </div>
+
+</article>
 
       </div>
     </div>
