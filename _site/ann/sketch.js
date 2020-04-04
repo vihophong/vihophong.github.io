@@ -25,15 +25,15 @@ function getRandomInt(max) {
 function preload() {
   images = [];
   for (let i = 1; i < N_TRAIN_SAMPLES; i++) {
-    let a = loadImage(`images-xray/p_${i}.jpg`)
-    let b = loadImage(`images-xray/n_${i}.jpg`)
+    let p = loadImage(`images-xray/p_${i}.jpg`)
+    let n = loadImage(`images-xray/n_${i}.jpg`)
     images.push({
-      image: a,
-      label: 'a'
+      image: p,
+      label: 'p'
     })
     images.push({
-      image: b,
-      label: 'b'
+      image: n,
+      label: 'n'
     })
   }
   testA = loadImage(`images-xray/test_p_0.jpg`)
