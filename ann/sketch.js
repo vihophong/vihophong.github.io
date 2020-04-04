@@ -99,9 +99,7 @@ function finishedTraining() {
 
 $("#predict-button").click(async function () {
   let path=document.getElementById("selected-image").getAttribute("src")
-  alert(path)
-  
-  let testA = loadImage(path)
+  let testA = loadImage(`images-xray/test_p_0.jpg`)
   testA.loadPixels();
   const test = Array.from(testA.pixels);
   nn.classify([test], gotResults)
