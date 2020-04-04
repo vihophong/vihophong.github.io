@@ -13,7 +13,7 @@ const IMAGE_WIDTH = 224;
 const IMAGE_HEIGHT = 224;
 const IMAGE_CHANNELS = 4;
 
-const N_TRAIN_SAMPLES = 10;
+const N_TRAIN_SAMPLES = 20;
 
 let images;
 let testA;
@@ -53,7 +53,7 @@ $("#random-image-button").click(async function () {
 	$("#test-list").attr("color", "red");
   	$("#test-list").append("Tested positive for Covid-19");
     }else{
-	testA = loadImage(`images-xray/test_p_0.jpg`)testA = loadImage(`images-xray/test_n_${irnd2}.jpg`)
+	testA = loadImage(`images-xray/test_n_${irnd2}.jpg`)
 	$("#selected-image").attr("src", `images-xray/test_n_${irnd2}.jpg`);
 	$("#test-list").empty();
 	$("#test-list").attr("color", "green");
@@ -99,8 +99,7 @@ function finishedTraining() {
 }
 
 $("#predict-button").click(async function () {
-  //let path=document.getElementById("selected-image").getAttribute("src")
-  //let testA = loadImage(`images-xray/test_p_0.jpg`)
+  testA.resize(IMAGE_WIDTH,IMAGE_HEIGHT);
   testA.loadPixels();
   const test = Array.from(testA.pixels);
   nn.classify([test], gotResults)
