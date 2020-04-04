@@ -11,7 +11,7 @@ This example uses a callback pattern to create the classifier
 let nn;
 const IMAGE_WIDTH = 224;
 const IMAGE_HEIGHT = 224;
-const IMAGE_CHANNELS = 3;
+const IMAGE_CHANNELS = 4;
 
 let images;
 let testA;
