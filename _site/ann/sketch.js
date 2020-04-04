@@ -45,7 +45,7 @@ function setup() {
 
   const options = {
     task: 'imageClassification',
-    debug: false,
+    debug: true,
     inputs:[IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_CHANNELS],
   }
 
