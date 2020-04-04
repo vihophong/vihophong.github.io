@@ -103,7 +103,7 @@ $("#predict-button").click(async function () {
   let irnd = getRandomInt(20)
   testA = loadImage(`images-xray/test_p_${irnd}.jpg`)
   testA.loadPixels();
-  const test = Array.from(a.pixels);
+  const test = Array.from(testA.pixels);
   nn.classify([test], gotResults)
 });
 
