@@ -13,7 +13,7 @@ const IMAGE_WIDTH = 224;
 const IMAGE_HEIGHT = 224;
 const IMAGE_CHANNELS = 4;
 
-const N_TRAIN_SAMPLES = 10;
+const N_TRAIN_SAMPLES = 20;
 
 let images;
 let testA;
@@ -78,7 +78,7 @@ function setup() {
   $('.progress-bar').show();
   const options = {
     task: 'imageClassification',
-    debug: false,
+    debug: true,
     inputs:[IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_CHANNELS],
   }
 
