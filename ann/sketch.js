@@ -13,7 +13,7 @@ const IMAGE_WIDTH = 224;
 const IMAGE_HEIGHT = 224;
 const IMAGE_CHANNELS = 4;
 
-const N_TRAIN_SAMPLES = 120;
+const N_TRAIN_SAMPLES = 5;
 
 let images;
 let testA;
