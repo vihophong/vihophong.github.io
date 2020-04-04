@@ -16,7 +16,7 @@ const IMAGE_CHANNELS = 4;
 const N_TRAIN_SAMPLES = 10;
 
 let images;
-const testA;
+let testA;
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
