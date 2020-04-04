@@ -13,7 +13,7 @@ const IMAGE_WIDTH = 224;
 const IMAGE_HEIGHT = 224;
 const IMAGE_CHANNELS = 4;
 
-const N_TRAIN_SAMPLES = 5;
+const N_TRAIN_SAMPLES = 20;
 
 let images;
 let testA;
@@ -44,10 +44,10 @@ $("#random-image-button").click(async function () {
     let irnd2 = getRandomInt(20)
     if (irnd1==0){
 	testA = loadImage(`images-xray/test_p_${irnd2}.jpg`)
-	$("#selected-image").attr("src", `images/test_p_${irnd2}.jpg`);
+	$("#selected-image").attr("src", `images-xray/test_p_${irnd2}.jpg`);
     }else{
 	testA = loadImage(`images-xray/test_n_${irnd2}.jpg`)
-	$("#selected-image").attr("src", `images/test_n_${irnd2}.jpg`);
+	$("#selected-image").attr("src", `images-xray/test_n_${irnd2}.jpg`);
     }
 });
 
@@ -55,7 +55,7 @@ function setup() {
   $('.progress-bar').show();
   const options = {
     task: 'imageClassification',
-    debug: true,
+    debug: false,
     inputs:[IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_CHANNELS],
   }
 
