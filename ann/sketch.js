@@ -36,10 +36,10 @@ function preload() {
 }
 
 function setup() {
-  //$('.progress-bar').show();
+  $('.progress-bar').show();
   const options = {
     task: 'imageClassification',
-    debug: true,
+    debug: false,
     inputs:[IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_CHANNELS],
   }
 
@@ -66,7 +66,7 @@ function setup() {
     epochs: 10,
   }
   nn.train(TRAINING_OPTIONS, finishedTraining)
-  //$('.progress-bar').hide();
+  $('.progress-bar').hide();
 }
 
 function finishedTraining() {
