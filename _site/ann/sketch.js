@@ -39,6 +39,7 @@ function preload() {
   testA = loadImage(`images-xray/test_p_0.jpg`)
   $("#selected-image").attr("src", `images-xray/test_p_0.jpg`);
   $("#test-list").empty();
+  $("#test-list").attr("color", "red");
   $("#test-list").append("Tested positive for Covid19");
 }
 
@@ -49,11 +50,13 @@ $("#random-image-button").click(async function () {
 	testA = loadImage(`images-xray/test_p_${irnd2}.jpg`)
 	$("#selected-image").attr("src", `images-xray/test_p_${irnd2}.jpg`);
 	$("#test-list").empty();
+	$("#test-list").attr("color", "red");
   	$("#test-list").append("Tested positive for Covid19");
     }else{
 	testA = loadImage(`images-xray/test_n_${irnd2}.jpg`)
 	$("#selected-image").attr("src", `images-xray/test_n_${irnd2}.jpg`);
 	$("#test-list").empty();
+	$("#test-list").attr("color", "green");
   	$("#test-list").append("Normal");
     }
 });
