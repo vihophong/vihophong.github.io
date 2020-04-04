@@ -90,8 +90,6 @@ function setup() {
   	epochs: 10,
   }
   nn.train(TRAINING_OPTIONS, finishedTraining);
-  
-  $('.progress-bar').hide();
 }
 
 function myclassify(){
@@ -102,6 +100,7 @@ function myclassify(){
 
 function finishedTraining() {
   console.log("finished training");
+  $('.progress-bar').hide();
 }
 
 function gotResults(err, result) {
