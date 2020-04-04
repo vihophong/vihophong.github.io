@@ -75,7 +75,8 @@ $("#train-button").click(async function () {
     batchSize: 2,
     epochs: 10,
   }
-  nn.train(TRAINING_OPTIONS, finishedTraining)
+  //nn.train(TRAINING_OPTIONS, finishedTraining)
+  nn.train(TRAINING_OPTIONS)
 });
 
 
