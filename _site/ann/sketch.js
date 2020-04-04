@@ -100,8 +100,9 @@ function finishedTraining() {
 
 $("#predict-button").click(async function () {
   //testA.resize(IMAGE_WIDTH,IMAGE_HEIGHT);
-  let a=$("#selected-image").get(0);
-  a.loadPixels();
+  let irnd = getRandomInt(20)
+  testA = loadImage(`images-xray/test_p_${irnd}.jpg`)
+  testA.loadPixels();
   const test = Array.from(a.pixels);
   nn.classify([test], gotResults)
 });
