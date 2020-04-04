@@ -94,13 +94,13 @@ function myclassify(){
   	epochs: 10,
   }
   nn.train(TRAINING_OPTIONS, finishedTraining);
-  testA.loadPixels();
-  const test = Array.from(testA.pixels);
-  nn.classify([test], gotResults);
 }
 
 function finishedTraining() {
   console.log("finished training");
+  testA.loadPixels();
+  const test = Array.from(testA.pixels);
+  nn.classify([test], gotResults);
 }
 
 function gotResults(err, result) {
