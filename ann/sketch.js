@@ -32,7 +32,7 @@ function preload() {
   }
   testA = loadImage(`images/A_test.png`)
   testA.resize(64,64);
-  $("#selected-image").attr("src", "images/A_test.png");
+  $("#selected-image").attr("src",testA);
 }
 
 function setup() {
