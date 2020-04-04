@@ -83,18 +83,17 @@ function setup() {
   }
 
   // normalize the data
-  nn.normalizeData();
-   // train
+  nn.normalizeData();  
+  $('.progress-bar').hide();
+}
+
+function myclassify(){
+  // train
   const TRAINING_OPTIONS = {
   	batchSize: 2,
   	epochs: 10,
   }
   nn.train(TRAINING_OPTIONS, finishedTraining);
-}
-
-function myclassify(){
-  let irnd2 = getRandomInt(20);
-  testA = loadImage(`images-xray/test_p_${irnd2}.jpg`);
   testA.loadPixels();
   const test = Array.from(testA.pixels);
   nn.classify([test], gotResults);
@@ -102,7 +101,6 @@ function myclassify(){
 
 function finishedTraining() {
   console.log("finished training");
-  $('.progress-bar').hide();
 }
 
 function gotResults(err, result) {
