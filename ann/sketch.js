@@ -94,9 +94,9 @@ function setup() {
   $('.progress-bar').hide();
 }
 
-$("#predict-button").click(async function () {
-  await testA.loadPixels();
-  const test = await Array.from(testA.pixels);
+$("#predict-button").click({
+  testA.loadPixels();
+  const test = Array.from(testA.pixels);
   nn.classify([test], gotResults);
 });
 
