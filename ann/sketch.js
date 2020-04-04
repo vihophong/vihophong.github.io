@@ -61,11 +61,11 @@ function setup() {
   nn.normalizeData();
 
   // train
-  const TRAINING_OPTIONS = {
-    batchSize: 2,
-    epochs: 10,
-  }
-  nn.train(TRAINING_OPTIONS, finishedTraining)
+  //const TRAINING_OPTIONS = {
+  //  batchSize: 2,
+  //  epochs: 10,
+  //}
+  //nn.train(TRAINING_OPTIONS, finishedTraining)
 
 }
 
