@@ -99,7 +99,6 @@ function finishedTraining() {
 }
 
 $("#predict-button").click(async function () {
-  testA.resize(IMAGE_WIDTH,IMAGE_HEIGHT);
   testA.loadPixels();
   const test = Array.from(testA.pixels);
   nn.classify([test], gotResults)
