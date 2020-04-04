@@ -36,7 +36,7 @@ function preload() {
 }
 
 function setup() {
-
+  $('.progress-bar').show();
   const options = {
     task: 'imageClassification',
     debug: true,
@@ -61,24 +61,13 @@ function setup() {
   nn.normalizeData();
 
   // train
-  //const TRAINING_OPTIONS = {
-  //  batchSize: 2,
-  //  epochs: 10,
-  //}
-  //nn.train(TRAINING_OPTIONS, finishedTraining)
-
-}
-
-$("#train-button").click(async function () {
-  // train
   const TRAINING_OPTIONS = {
     batchSize: 2,
     epochs: 10,
   }
-  //nn.train(TRAINING_OPTIONS, finishedTraining)
-  nn.train(TRAINING_OPTIONS)
-});
-
+  nn.train(TRAINING_OPTIONS, finishedTraining)
+  $('.progress-bar').hide();
+}
 
 function finishedTraining() {
   console.log("finished training");
