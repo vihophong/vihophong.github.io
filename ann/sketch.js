@@ -98,7 +98,7 @@ function myclassify(){
   testA.loadPixels();
   const test = Array.from(testA.pixels);
   nn.classify([test], gotResults);
-});
+}
 
 function finishedTraining() {
   console.log("finished training");
