@@ -22,6 +22,7 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
+
 function preload() {
   images = [];
   for (let i = 1; i < N_TRAIN_SAMPLES; i++) {
@@ -29,11 +30,11 @@ function preload() {
     let n = loadImage(`images-xray/n_${i}.jpg`)
     images.push({
       image: p,
-      label: 'p'
+      label: 'positive'
     })
     images.push({
       image: n,
-      label: 'n'
+      label: 'negative'
     })
   }
   testA = loadImage(`images-xray/test_p_0.jpg`)
@@ -59,6 +60,18 @@ $("#random-image-button").click(async function () {
 	$("#test-list").attr("color", "green");
   	$("#test-list").append("Normal");
     }
+});
+
+$("#image-selector").change(function () {
+	let reader = new FileReader();
+	reader.onload = function () {
+		let dataURL = reader.result;
+		testA = loadImage(dataURL)
+		$("#selected-image").attr("src", dataURL);
+		$("#prediction-list").empty();		
+	}
+	let file = $("#image-selector").prop('files')[0];
+	reader.readAsDataURL(file);	
 });
 
 function setup() {
@@ -109,25 +122,6 @@ function gotResults(err, result) {
     return
   }
   $("#prediction-list").empty();
-  $("#prediction-list").append(`<li>`);
-  if (result[0].confidence>result[1].confidence){
-     if (result[0].label='n') {
-	$("#prediction-list").append("Neural network prediction: Covid-19 negative, confidence = ");
-	$("#prediction-list").append(result[0].confidence);
-      }else{
-	$("#prediction-list").append("Neural network prediction: Covid-19 positve, confidence = ");
-	$("#prediction-list").append(result[0].confidence);
-      }
-  }else{
-      if (result[1].label='n') {
-	$("#prediction-list").append("Neural network prediction: Covid-19 negative, confidence = ");
-	$("#prediction-list").append(result[1].confidence);
-      }else{
-	$("#prediction-list").append("Neural network prediction: Covid-19 positve, confidence = ");
-	$("#prediction-list").append(result[1].confidence);
-      }
-  }
-  $("#prediction-list").append(`</li>`);
   $("#prediction-list").append(`<li>`);
   $("#prediction-list").append(result[0].label);
   $("#prediction-list").append(` confidence = `);
