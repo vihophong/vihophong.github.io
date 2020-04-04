@@ -29,11 +29,11 @@ function preload() {
     let b = loadImage(`images-xray/n_${i}.jpg`)
     images.push({
       image: a,
-      label: 'p'
+      label: 'a'
     })
     images.push({
       image: b,
-      label: 'n'
+      label: 'b'
     })
   }
   testA = loadImage(`images-xray/test_p_0.jpg`)
