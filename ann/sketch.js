@@ -13,6 +13,8 @@ const IMAGE_WIDTH = 224;
 const IMAGE_HEIGHT = 224;
 const IMAGE_CHANNELS = 4;
 
+const N_TRAIN_SAMPLES = 120;
+
 let images;
 let testA;
 
@@ -22,7 +24,7 @@ function getRandomInt(max) {
 
 function preload() {
   images = [];
-  for (let i = 1; i < 7; i++) {
+  for (let i = 1; i < N_TRAIN_SAMPLES; i++) {
     let a = loadImage(`images-xray/p_${i}.jpg`)
     let b = loadImage(`images-xray/n_${i}.jpg`)
     images.push({
@@ -53,7 +55,7 @@ function setup() {
   $('.progress-bar').show();
   const options = {
     task: 'imageClassification',
-    debug: true,
+    debug: false,
     inputs:[IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_CHANNELS],
   }
 
@@ -87,6 +89,7 @@ function finishedTraining() {
 }
 
 $("#predict-button").click(async function () {
+  testA.resize(IMAGE_WIDTH,IMAGE_HEIGHT);
   testA.loadPixels();
   const test = Array.from(testA.pixels);
   nn.classify([test], gotResults)
