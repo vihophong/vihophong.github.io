@@ -40,18 +40,18 @@ function preload() {
   $("#selected-image").attr("src", `images-xray/test_p_0.jpg`);
   $("#test-list").empty();
   $("#test-list").attr("color", "red");
-  $("#test-list").append("Tested positive for Covid19");
+  $("#test-list").append("Tested positive for Covid-19");
 }
 
 $("#random-image-button").click(async function () {
     let irnd1 = getRandomInt(2)
-    let irnd2 = getRandomInt(20)
+    let irnd2 = getRandomInt(28)
     if (irnd1==0){
 	testA = loadImage(`images-xray/test_p_${irnd2}.jpg`)
 	$("#selected-image").attr("src", `images-xray/test_p_${irnd2}.jpg`);
 	$("#test-list").empty();
 	$("#test-list").attr("color", "red");
-  	$("#test-list").append("Tested positive for Covid19");
+  	$("#test-list").append("Tested positive for Covid-19");
     }else{
 	testA = loadImage(`images-xray/test_n_${irnd2}.jpg`)
 	$("#selected-image").attr("src", `images-xray/test_n_${irnd2}.jpg`);
@@ -112,7 +112,14 @@ function gotResults(err, result) {
   }
   $("#prediction-list").empty();
   $("#prediction-list").append(`<li>`);
-  $("#prediction-list").append(result);
+  if (result.label=='p'){
+     $("#prediction-list").append("Neural network prediction: Covid-19 positve");
+  }else{
+     $("#prediction-list").append("Neural network prediction: Covid-19 negative");
+  }
+  $("#prediction-list").append(`</li>`);
+  $("#prediction-list").append(`<li>`);
+  $("#prediction-list").append(result.label);
   $("#prediction-list").append(`</li>`);
   console.log(result);
 }
