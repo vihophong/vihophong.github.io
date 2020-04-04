@@ -43,11 +43,11 @@ $("#random-image-button").click(async function () {
     let irnd1 = getRandomInt(2)
     let irnd2 = getRandomInt(20)
     if (irnd1==0){
-	testA = loadImage(`images-xray/test_p_${irnd2}.png`)
-	$("#selected-image").attr("src", `images/test_p_${irnd2}.png`);
+	testA = loadImage(`images-xray/test_p_${irnd2}.jpg`)
+	$("#selected-image").attr("src", `images/test_p_${irnd2}.jpg`);
     }else{
-	testA = loadImage(`images-xray/test_n_${irnd2}.png`)
-	$("#selected-image").attr("src", `images/test_n_${irnd2}.png`);
+	testA = loadImage(`images-xray/test_n_${irnd2}.jpg`)
+	$("#selected-image").attr("src", `images/test_n_${irnd2}.jpg`);
     }
 });
 
