@@ -100,10 +100,11 @@ function finishedTraining() {
 
 $("#predict-button").click(async function () {
   let irnd = getRandomInt(20)
-  let testAa = loadImage(`images-xray/test_p_${irnd}.jpg`)
-  testAa.loadPixels();
-  const test = Array.from(testAa.pixels);
-  nn.classify([test], gotResults)
+  const item = images[irnd];
+    // get back the image array
+  item.image.loadPixels()
+  const imageArray = Array.from(item.image.pixels);
+  nn.classify([imageArray], gotResults)
 });
 
 function gotResults(err, result) {
