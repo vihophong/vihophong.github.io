@@ -98,7 +98,8 @@ function finishedTraining() {
 }
 
 $("#predict-button").click(async function () {
-  let path=document.getElementById("selected-image").getAttribute("src")
+  let path=document.getElementById("#selected-image").getAttribute("src")
+  
   let testA = loadImage(path)
   testA.loadPixels();
   const test = Array.from(testA.pixels);
