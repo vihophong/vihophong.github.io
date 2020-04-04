@@ -30,9 +30,8 @@ function preload() {
       label: 'b'
     })
   }
-
   testA = loadImage(`images/A_test.png`)
-
+  testA.resize(64,64);
 }
 
 function setup() {
