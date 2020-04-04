@@ -8,15 +8,41 @@ ml5 Example
 Image classification using MobileNet and p5.js
 This example uses a callback pattern to create the classifier
 === */
+let nn;
+const IMAGE_WIDTH = 64;
+const IMAGE_HEIGHT = 64;
+const IMAGE_CHANNELS = 4;
 
-$(document).ready(function() {
+let images;
+let testA;
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+function preload() {
     $.ajax({
         type: "GET",
         url: "data.txt",
         dataType: "text",
         success: function(data) {processData(data);}
      });
-});
+
+  images = [];
+  for (let i = 1; i < 7; i++) {
+    const a = loadImage(`images/A_0${i}.png`)
+    const b = loadImage(`images/B_0${i}.png`)
+    images.push({
+      image: a,
+      label: 'a'
+    })
+    images.push({
+      image: b,
+      label: 'b'
+    })
+  }
+  testA = loadImage(`images/A_test.png`)
+}
 
 function processData(allText) {
     var allTextLines = allText.split(/\r\n|\n/);
@@ -37,35 +63,6 @@ function processData(allText) {
     alert(lines);
 }
 
-
-let nn;
-const IMAGE_WIDTH = 64;
-const IMAGE_HEIGHT = 64;
-const IMAGE_CHANNELS = 4;
-
-let images;
-let testA;
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
-function preload() {
-  images = [];
-  for (let i = 1; i < 7; i++) {
-    const a = loadImage(`images/A_0${i}.png`)
-    const b = loadImage(`images/B_0${i}.png`)
-    images.push({
-      image: a,
-      label: 'a'
-    })
-    images.push({
-      image: b,
-      label: 'b'
-    })
-  }
-  testA = loadImage(`images/A_test.png`)
-}
 
 $("#random-image-button").click(async function () {
     let irnd = getRandomInt(4)
