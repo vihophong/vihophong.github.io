@@ -16,6 +16,10 @@ const IMAGE_CHANNELS = 4;
 let images;
 let testA;
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
 function preload() {
   images = [];
   for (let i = 1; i < 7; i++) {
@@ -31,9 +35,13 @@ function preload() {
     })
   }
   testA = loadImage(`images/A_test.png`)
-  testA.resize(64,64);
-  $("#selected-image").attr("src",testA);
 }
+
+$("#random-image-button").click(async function () {
+    let irnd = getRandomInt(4)
+    testA = loadImage(`images/test_${irnd}.png`)
+    $("#selected-image").attr("src", `images/test_${irnd}.png`);
+});
 
 function setup() {
   $('.progress-bar').show();
