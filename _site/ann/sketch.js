@@ -13,7 +13,7 @@ const IMAGE_WIDTH = 224;
 const IMAGE_HEIGHT = 224;
 const IMAGE_CHANNELS = 4;
 
-const N_TRAIN_SAMPLES = 20;
+const N_TRAIN_SAMPLES = 80;
 
 let images;
 let testA;
@@ -103,8 +103,8 @@ function setup() {
 $("#predict-button").click(async function () {
   // train
   const TRAINING_OPTIONS = {
-    batchSize: 2,
-    epochs: 10,
+    batchSize: 24,
+    epochs: 32,
   }
   await nn.train(TRAINING_OPTIONS, whileTraining, finishedTraining);
 });
