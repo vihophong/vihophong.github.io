@@ -16,6 +16,12 @@ const IMAGE_CHANNELS = 4;
 let images;
 let testA;
 
+// train
+const TRAINING_OPTIONS = {
+    batchSize: 2,
+    epochs: 10,
+}
+
 function preload() {
   images = [];
   for (let i = 1; i < 7; i++) {
@@ -60,15 +66,13 @@ function setup() {
   // normalize the data
   nn.normalizeData();
 
-  // train
-  const TRAINING_OPTIONS = {
-    batchSize: 2,
-    epochs: 10,
-  }
-
   nn.train(TRAINING_OPTIONS, finishedTraining)
 
 }
+
+$("#train-button").click(async function () {
+  nn.train(TRAINING_OPTIONS, finishedTraining)
+});
 
 
 function finishedTraining() {
