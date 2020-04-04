@@ -93,6 +93,8 @@ function setup() {
 }
 
 function myclassify(){
+  let irnd2 = getRandomInt(20);
+  testA = loadImage(`images-xray/test_p_${irnd2}.jpg`);
   testA.loadPixels();
   const test = Array.from(testA.pixels);
   nn.classify([test], gotResults);
