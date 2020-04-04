@@ -25,8 +25,6 @@ function preload() {
   for (let i = 1; i < 10; i++) {
     let a = loadImage(`images-xray/p_${i}.jpg`)
     let b = loadImage(`images-xray/n_${i}.jpg`)
-    a.resize(IMAGE_WIDTH,IMAGE_HEIGHT);
-    b.resize(IMAGE_WIDTH,IMAGE_HEIGHT);
     images.push({
       image: a,
       label: 'p'
@@ -89,7 +87,6 @@ function finishedTraining() {
 }
 
 $("#predict-button").click(async function () {
-  testA.resize(IMAGE_WIDTH,IMAGE_HEIGHT);
   testA.loadPixels();
   const test = Array.from(testA.pixels);
   nn.classify([test], gotResults)
