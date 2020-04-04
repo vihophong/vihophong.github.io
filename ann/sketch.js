@@ -106,8 +106,12 @@ $("#predict-button").click(async function () {
     batchSize: 2,
     epochs: 10,
   }
-  nn.train(TRAINING_OPTIONS, finishedTraining);
+  nn.train(TRAINING_OPTIONS, whileTraining, finishedTraining);
 });
+
+function whileTraining(epoch, loss) {
+  console.log(`epoch: ${epoch}, loss:${loss}`);
+}
 
 function finishedTraining() {
   console.log("finished training");
