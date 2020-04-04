@@ -112,14 +112,33 @@ function gotResults(err, result) {
   }
   $("#prediction-list").empty();
   $("#prediction-list").append(`<li>`);
-  if (result.label=='p'){
-     $("#prediction-list").append("Neural network prediction: Covid-19 positve");
+  if (result[0].confidence>result[1].confidence){
+     if (result[0].label='n') {
+	$("#prediction-list").append("Neural network prediction: Covid-19 negative, confidence = ");
+	$("#prediction-list").append(result[0].confidence);
+      }else{
+	$("#prediction-list").append("Neural network prediction: Covid-19 positve, confidence = ");
+	$("#prediction-list").append(result[0].confidence);
+      }
   }else{
-     $("#prediction-list").append("Neural network prediction: Covid-19 negative");
+      if (result[1].label='n') {
+	$("#prediction-list").append("Neural network prediction: Covid-19 negative, confidence = ");
+	$("#prediction-list").append(result[1].confidence);
+      }else{
+	$("#prediction-list").append("Neural network prediction: Covid-19 positve, confidence = ");
+	$("#prediction-list").append(result[1].confidence);
+      }
   }
   $("#prediction-list").append(`</li>`);
   $("#prediction-list").append(`<li>`);
-  $("#prediction-list").append(result.label);
+  $("#prediction-list").append(result[0].label);
+  $("#prediction-list").append(` confidence = `);
+  $("#prediction-list").append(result[0].confidence);
+  $("#prediction-list").append(`</li>`);
+  $("#prediction-list").append(`<li>`);
+  $("#prediction-list").append(result[1].label);
+  $("#prediction-list").append(` confidence = `);
+  $("#prediction-list").append(result[1].confidence);
   $("#prediction-list").append(`</li>`);
   console.log(result);
 }
