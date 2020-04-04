@@ -16,7 +16,6 @@ const IMAGE_CHANNELS = 4;
 const N_TRAIN_SAMPLES = 20;
 
 let images;
-let testA;
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -36,7 +35,7 @@ function preload() {
       label: 'n'
     })
   }
-  testA = loadImage(`images-xray/test_p_0.jpg`)
+  //testA = loadImage(`images-xray/test_p_0.jpg`)
   $("#selected-image").attr("src", `images-xray/test_p_0.jpg`);
   $("#test-list").empty();
   $("#test-list").attr("color", "red");
@@ -47,13 +46,13 @@ $("#random-image-button").click(async function () {
     let irnd1 = getRandomInt(2)
     let irnd2 = getRandomInt(28)
     if (irnd1==0){
-	testA = loadImage(`images-xray/test_p_${irnd2}.jpg`)
+	//testA = loadImage(`images-xray/test_p_${irnd2}.jpg`)
 	$("#selected-image").attr("src", `images-xray/test_p_${irnd2}.jpg`);
 	$("#test-list").empty();
 	$("#test-list").attr("color", "red");
   	$("#test-list").append("Tested positive for Covid-19");
     }else{
-	testA = loadImage(`images-xray/test_n_${irnd2}.jpg`)
+	//testA = loadImage(`images-xray/test_p_0.jpg`)testA = loadImage(`images-xray/test_n_${irnd2}.jpg`)
 	$("#selected-image").attr("src", `images-xray/test_n_${irnd2}.jpg`);
 	$("#test-list").empty();
 	$("#test-list").attr("color", "green");
@@ -99,9 +98,10 @@ function finishedTraining() {
 }
 
 $("#predict-button").click(async function () {
-  testA.resize(IMAGE_WIDTH,IMAGE_HEIGHT);
+  let path=document.getElementById("selected-image").getAttribute("src")
+  let testA = loadImage(path)
   testA.loadPixels();
-  let test = Array.from(testA.pixels);
+  const test = Array.from(testA.pixels);
   nn.classify([test], gotResults)
 });
 
