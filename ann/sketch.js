@@ -84,28 +84,26 @@ function setup() {
 
   // normalize the data
   nn.normalizeData();
+  $('.progress-bar').hide();
+}
 
-  // train
+$("#predict-button").click(async function () {
+  $('.progress-bar').show();
+// train
   const TRAINING_OPTIONS = {
     batchSize: 2,
     epochs: 10,
   }
-  nn.train(TRAINING_OPTIONS, finishedTraining)
+  nn.train(TRAINING_OPTIONS, finishedTraining);
   $('.progress-bar').hide();
-}
+});
 
 function finishedTraining() {
   console.log("finished training");
+  testA.loadPixels();
+  const test = Array.from(testA.pixels);
+  nn.classify([test], gotResults)
 }
-
-$("#predict-button").click(async function () {
-  let irnd = getRandomInt(20)
-  let item = images[irnd];
-    // get back the image array
-  item.image.loadPixels()
-  let imageArray = Array.from(item.image.pixels);
-  nn.classify([imageArray], gotResults)
-});
 
 function gotResults(err, result) {
   if (err) {
