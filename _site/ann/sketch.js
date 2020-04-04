@@ -22,7 +22,7 @@ function getRandomInt(max) {
 
 function preload() {
   images = [];
-  for (let i = 1; i < 120; i++) {
+  for (let i = 1; i < 10; i++) {
     let a = loadImage(`images-xray/p_${i}.jpg`)
     let b = loadImage(`images-xray/n_${i}.jpg`)
     a.resize(IMAGE_WIDTH,IMAGE_HEIGHT);
@@ -41,13 +41,13 @@ function preload() {
 
 $("#random-image-button").click(async function () {
     let irnd1 = getRandomInt(2)
-    let irnd2 = getRandomInt(4)
+    let irnd2 = getRandomInt(20)
     if (irnd1==0){
-	testA = loadImage(`images/test_p_${irnd}.png`)
-	$("#selected-image").attr("src", `images/test_p_${irnd}.png`);
+	testA = loadImage(`images/test_p_${irnd2}.png`)
+	$("#selected-image").attr("src", `images/test_p_${irnd2}.png`);
     }else{
-	testA = loadImage(`images/test_n_${irnd}.png`)
-	$("#selected-image").attr("src", `images/test_n_${irnd}.png`);
+	testA = loadImage(`images/test_n_${irnd2}.png`)
+	$("#selected-image").attr("src", `images/test_n_${irnd2}.png`);
     }
 });
 
