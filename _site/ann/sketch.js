@@ -78,7 +78,7 @@ function setup() {
   $('.progress-bar').show();
   const options = {
     task: 'imageClassification',
-    debug: true,
+    debug: false,
     inputs:[IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_CHANNELS],
   }
 
