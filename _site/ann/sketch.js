@@ -94,7 +94,7 @@ function setup() {
   $('.progress-bar').hide();
 }
 
-$("#predict-button").click({
+function myclassify(){
   testA.loadPixels();
   const test = Array.from(testA.pixels);
   nn.classify([test], gotResults);
