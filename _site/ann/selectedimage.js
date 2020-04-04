@@ -7,7 +7,5 @@ $("#image-selector").change(function () {
 	}
 	
 	let file = $("#image-selector").prop('files')[0];
-	reader.readAsDataURL(file);
-	let image = $('#selected-image').get(0);
-	
+	reader.readAsDataURL(file);	
 });
