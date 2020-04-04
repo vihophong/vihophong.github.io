@@ -22,7 +22,7 @@ function getRandomInt(max) {
 
 function preload() {
   images = [];
-  for (let i = 1; i < 10; i++) {
+  for (let i = 1; i < 7; i++) {
     let a = loadImage(`images-xray/p_${i}.jpg`)
     let b = loadImage(`images-xray/n_${i}.jpg`)
     images.push({
