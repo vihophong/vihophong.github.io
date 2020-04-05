@@ -64,7 +64,7 @@ $("#image-selector").change(function () {
 
 function setup() {
   $('.progress-bar').show();
-  const classifier = ml5.imageClassifier("https://storage.googleapis.com/tm-pro-a6966.appspot.com/eyeo-test-yining/model.json", modelLoaded);
+  const classifier = ml5.imageClassifier("./model/model.json", modelLoaded);
   $('.progress-bar').hide();
 }
 
