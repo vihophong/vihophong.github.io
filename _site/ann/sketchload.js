@@ -64,10 +64,10 @@ $("#image-selector").change(function () {
 
 function setup() {
   $('.progress-bar').show();
-  const classifier = await ml5.imageClassifier("./model/model.json", modelLoaded);
+  const classifier = ml5.imageClassifier("./model/model.json", modelLoaded);
   classifier.predict(document.getElementById('selected-image'), function(err, results) {
     console.log(results);
-});
+  });
   $('.progress-bar').hide();
 }
 
