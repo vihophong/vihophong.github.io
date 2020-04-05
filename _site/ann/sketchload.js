@@ -24,7 +24,10 @@ $("#image-selector").change(function () {
 	let reader = new FileReader();
 	reader.onload = function () {
 		let dataURL = reader.result;
-		$("#selected-image").attr("src", dataURL);
+        $("#selected-image").attr("src", dataURL);
+        $("#test-list").empty();
+        $("#test-list").attr("color", "red");
+        $("#test-list").append("Loaded image");  
 		$("#prediction-list").empty();		
 	}
 	let file = $("#image-selector").prop('files')[0];
