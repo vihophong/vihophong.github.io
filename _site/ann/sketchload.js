@@ -18,6 +18,8 @@ const N_TRAIN_SAMPLES = 80;
 let images;
 let testA;
 
+const classifier;
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -64,7 +66,7 @@ $("#image-selector").change(function () {
 
 function setup() {
   $('.progress-bar').show();
-  const classifier = ml5.imageClassifier("./model/model.json", modelLoaded);
+  classifier = ml5.imageClassifier("./model/model.json", modelLoaded);
   $('.progress-bar').hide();
 }
 
