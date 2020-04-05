@@ -18,8 +18,6 @@ const N_TRAIN_SAMPLES = 80;
 let images;
 let testA;
 
-const classifier;
-
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -66,16 +64,16 @@ $("#image-selector").change(function () {
 
 function setup() {
   $('.progress-bar').show();
-  classifier = ml5.imageClassifier("./model/model.json", modelLoaded);
+  const classifier = await ml5.imageClassifier("./model/model.json", modelLoaded);
+  classifier.predict(document.getElementById('selected-image'), function(err, results) {
+    console.log(results);
+});
   $('.progress-bar').hide();
 }
 
 function modelLoaded()
 {
     console.log("Model Loaded");
-    classifier.predict(document.getElementById('selected-image'), function(err, results) {
-        console.log(results);
-    });
 }
 
 $("#predict-button").click(async function () {
