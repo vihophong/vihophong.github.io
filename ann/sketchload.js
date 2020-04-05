@@ -33,7 +33,7 @@ $("#image-selector").change(function () {
 
 function preload() {
   $('.progress-bar').show();
-  classifier = ml5.imageClassifier("./model3/model.json", modelLoaded);
+  classifier = ml5.imageClassifier("./model/model.json", modelLoaded);
   $("#selected-image").attr("src", `images-xray/p_80.jpg`);
   $("#test-list").empty();
   $("#test-list").attr("color", "red");
