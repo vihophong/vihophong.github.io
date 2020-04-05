@@ -71,6 +71,9 @@ function setup() {
 function modelLoaded()
 {
     console.log("Model Loaded");
+    classifier.predict(document.getElementById('selected-image'), function(err, results) {
+        console.log(results);
+    });
 }
 
 $("#predict-button").click(async function () {
