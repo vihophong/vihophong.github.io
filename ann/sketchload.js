@@ -75,13 +75,13 @@ function gotResults(err, results) {
     console.log(results);
     $("#prediction-list").empty();
     $("#prediction-list").append(`<li>`);
-    $("#prediction-list").append(result[0].label);
+    $("#prediction-list").append(results[0].label);
     $("#prediction-list").append(` confidence = `);
-    $("#prediction-list").append(result[0].confidence*100);
+    $("#prediction-list").append(results[0].confidence*100);
     $("#prediction-list").append(` %</li>`);
     $("#prediction-list").append(`<li>`);
-    $("#prediction-list").append(result[1].label);
+    $("#prediction-list").append(results[1].label);
     $("#prediction-list").append(` confidence = `);
-    $("#prediction-list").append(result[1].confidence*100);
+    $("#prediction-list").append(results[1].confidence*100);
     $("#prediction-list").append(` %</li>`);
 }
